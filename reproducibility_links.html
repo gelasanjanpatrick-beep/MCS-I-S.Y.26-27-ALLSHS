@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code and Data for Reproducibility</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 11pt; line-height: 1.45;
+         color: #202124; background: #ffffff; max-width: 52rem; margin: 0 auto; padding: 1.5rem 1rem; }
+  h1 { font-size: 20pt; font-weight: normal; margin: 0 0 0.4em; }
+  h2 { font-size: 16pt; font-weight: normal; margin: 1.6em 0 0.4em; }
+  p { margin: 0.5em 0; }
+  ul { margin: 0.2em 0 0.6em; padding-left: 1.6em; }
+  a { color: #1155cc; overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<h1>Code and Data for Reproducibility</h1>
+<p><i>Development and Evaluation of a Physics-Informed Hybrid SARIMAX-LSTM Model Using Clear-Sky Index-Informed Learning for Year-Ahead Global Horizontal Irradiance Forecasting and Spatial Mapping in the Philippines</i></p>
+<p>Each link opens a file on GitHub, where it can be viewed or downloaded. Notebooks (.ipynb) show the code with its outputs, and small CSV files show as a table. README.md gives the order in which to run the notebooks.</p>
+<h2>Overview</h2>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS">Whole repository</a> – every file of the study</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/archive/refs/heads/main.zip">Download everything (ZIP)</a> – the whole repository as one file</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/README.md">README.md</a> – How to run the study: notebook order, data sources and reproducibility notes</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/requirements.txt">requirements.txt</a> – Python libraries and the exact versions used</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Reproducibility_Links.ipynb">Reproducibility_Links.ipynb</a> – Creates this list of links</li>
+</ul>
+<h2>Data acquisition</h2>
+<p><b>Code</b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Philippine%20Map%20Create_Grid.ipynb">Philippine Map Create_Grid.ipynb</a> – Creates the 1° × 1° grid, keeps the 93 cells that intersect Philippine land and assigns each a representative query point</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Data_Extraction_NASAPOWER.ipynb">Data_Extraction_NASAPOWER.ipynb</a> – Downloads monthly GHI, cloud amount and relative humidity (2005–2024) from NASA POWER for the 93 grids</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Elevation_Extraction.ipynb">Elevation_Extraction.ipynb</a> – Extracts SRTM elevation at each grid&#x27;s query point through OpenTopoData</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/data/processed">data/processed/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/data/processed/grid_metadata.csv">grid_metadata.csv</a> – The 93 grid cells: bounds, centre, query point, area and land coverage</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/data/processed/philippines_grid.geojson">philippines_grid.geojson</a> – The 93 grid cells as polygons, for GIS software</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/data/raw/nasa_power">data/raw/nasa_power/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/data/raw/nasa_power/nasa_power_monthly.csv">nasa_power_monthly.csv</a> – NASA POWER monthly GHI, cloud amount and relative humidity per grid, 2005–2024, as downloaded</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/data/raw/elevation">data/raw/elevation/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/data/raw/elevation/grid_elevation.csv">grid_elevation.csv</a> – Elevation (m) of each grid&#x27;s query point and its source dataset</li>
+</ul>
+<h2>Data pre-processing</h2>
+<p><b>Code</b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Data_Preprocessing_Validation.ipynb">Data_Preprocessing_Validation.ipynb</a> – Checks structure, missing values, physical validity, outliers and other quality issues; adds extraterrestrial irradiance (H0) and the clearness index (Kt)</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/data/processed">data/processed/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/data/processed/nasa_power_validated.csv">nasa_power_validated.csv</a> – Validated dataset, 2005–2024, with H0, Kt and quality flags (input of the models)</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/data/processed/quality">data/processed/quality/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/data/processed/quality/validation_summary.csv">validation_summary.csv</a> – Result of each of the 25 data-quality checks</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/data/processed/quality/flagged_records.csv">flagged_records.csv</a> – Values flagged as outliers (|modified z| &gt; 3.5), with details</li>
+</ul>
+<h2>Standalone models and rolling validation</h2>
+<p><b>Code</b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Standalone_Models.ipynb">Standalone_Models.ipynb</a> – SARIMAX, LSTM and XGBoost, with climatology and seasonal-naive baselines; rolling validation 2015–2022</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/standalone_models">outputs/standalone_models/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_rounds.csv">rolling_rounds.csv</a> – The 8 rolling-validation rounds: training period and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/environment.txt">environment.txt</a> – Python and library versions used for this run</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/standalone_models/rolling_predictions">outputs/standalone_models/rolling_predictions/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_predictions/sarimax_rolling_predictions.csv">sarimax_rolling_predictions.csv</a> – SARIMAX: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_predictions/lstm_rolling_predictions.csv">lstm_rolling_predictions.csv</a> – LSTM: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_predictions/xgboost_rolling_predictions.csv">xgboost_rolling_predictions.csv</a> – XGBoost: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_predictions/climatology_rolling_predictions.csv">climatology_rolling_predictions.csv</a> – Climatology baseline: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_predictions/seasonal_naive_rolling_predictions.csv">seasonal_naive_rolling_predictions.csv</a> – Seasonal naive baseline: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/standalone_models/rolling_metrics">outputs/standalone_models/rolling_metrics/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_metrics/rolling_metrics_summary.csv">rolling_metrics_summary.csv</a> – Summary of every model: pooled RMSE, MAE, nRMSE and skill vs. climatology, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_metrics/rolling_metrics_by_grid_all_models.csv">rolling_metrics_by_grid_all_models.csv</a> – All models: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_metrics/rolling_metrics_by_round_all_models.csv">rolling_metrics_by_round_all_models.csv</a> – All models: RMSE, MAE and nRMSE per validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_metrics/sarimax_rolling_metrics_by_grid.csv">sarimax_rolling_metrics_by_grid.csv</a> – SARIMAX: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_metrics/sarimax_rolling_metrics_by_round.csv">sarimax_rolling_metrics_by_round.csv</a> – SARIMAX: RMSE, MAE and nRMSE per validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_metrics/lstm_rolling_metrics_by_grid.csv">lstm_rolling_metrics_by_grid.csv</a> – LSTM: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_metrics/lstm_rolling_metrics_by_round.csv">lstm_rolling_metrics_by_round.csv</a> – LSTM: RMSE, MAE and nRMSE per validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_metrics/xgboost_rolling_metrics_by_grid.csv">xgboost_rolling_metrics_by_grid.csv</a> – XGBoost: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_metrics/xgboost_rolling_metrics_by_round.csv">xgboost_rolling_metrics_by_round.csv</a> – XGBoost: RMSE, MAE and nRMSE per validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_metrics/climatology_rolling_metrics_by_grid.csv">climatology_rolling_metrics_by_grid.csv</a> – Climatology baseline: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_metrics/climatology_rolling_metrics_by_round.csv">climatology_rolling_metrics_by_round.csv</a> – Climatology baseline: RMSE, MAE and nRMSE per validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_metrics/seasonal_naive_rolling_metrics_by_grid.csv">seasonal_naive_rolling_metrics_by_grid.csv</a> – Seasonal naive baseline: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/rolling_metrics/seasonal_naive_rolling_metrics_by_round.csv">seasonal_naive_rolling_metrics_by_round.csv</a> – Seasonal naive baseline: RMSE, MAE and nRMSE per validation year</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/standalone_models/models">outputs/standalone_models/models/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/models/lstm_training_history.csv">lstm_training_history.csv</a> – LSTM training and early-stopping loss per epoch and round</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/models/sarimax_rolling_diagnostics.csv">sarimax_rolling_diagnostics.csv</a> – SARIMAX order, AIC, convergence and Ljung-Box p-value per grid and round</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/standalone_models/models/xgboost_feature_importance_last_round.csv">xgboost_feature_importance_last_round.csv</a> – XGBoost feature importance (gain), last round</li>
+</ul>
+<h2>Hybrid SARIMAX-LSTM, Ineichen-Perez clear-sky framework, penalized loss and rolling validation</h2>
+<p><b>Code</b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Hybrid_Models.ipynb">Hybrid_Models.ipynb</a> – Ineichen-Perez clear-sky GHI, the hybrid SARIMAX-LSTM (TVWA), + CSI and + penalized loss; rolling validation 2015–2022</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/data/processed">data/processed/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/data/processed/clearsky_ineichen_monthly.csv">clearsky_ineichen_monthly.csv</a> – Ineichen-Perez clear-sky GHI (kWh/m²/day) per grid and month, 2005–2026</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/hybrid_models">outputs/hybrid_models/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/environment.txt">environment.txt</a> – Python and library versions used for this run</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/hybrid_models/rolling_predictions">outputs/hybrid_models/rolling_predictions/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_predictions/hybrid_csi_pl_rolling_predictions.csv">hybrid_csi_pl_rolling_predictions.csv</a> – Hybrid SARIMAX-LSTM + CSI + PL (proposed model): forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_predictions/hybrid_csi_rolling_predictions.csv">hybrid_csi_rolling_predictions.csv</a> – Hybrid SARIMAX-LSTM + CSI: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_predictions/hybrid_rolling_predictions.csv">hybrid_rolling_predictions.csv</a> – Hybrid SARIMAX-LSTM: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_predictions/component_sarimax_ghi_rolling_predictions.csv">component_sarimax_ghi_rolling_predictions.csv</a> – SARIMAX (GHI) component: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_predictions/component_lstm_ghi_rolling_predictions.csv">component_lstm_ghi_rolling_predictions.csv</a> – LSTM (GHI) component: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_predictions/component_sarimax_csi_rolling_predictions.csv">component_sarimax_csi_rolling_predictions.csv</a> – SARIMAX (CSI) component: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_predictions/component_lstm_csi_rolling_predictions.csv">component_lstm_csi_rolling_predictions.csv</a> – LSTM (CSI) component: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_predictions/component_lstm_csi_pl_rolling_predictions.csv">component_lstm_csi_pl_rolling_predictions.csv</a> – LSTM (CSI + PL) component: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_predictions/climatology_rolling_predictions.csv">climatology_rolling_predictions.csv</a> – Climatology baseline: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2015–2022</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/hybrid_models/components">outputs/hybrid_models/components/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/components/sarimax_ghi_rolling.csv">sarimax_ghi_rolling.csv</a> – SARIMAX (GHI) component: GHI and CSI forecasts for every grid and month, 2014–2022 (2014 is a warm-up year that only sets the first TVWA weights)</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/components/lstm_ghi_rolling.csv">lstm_ghi_rolling.csv</a> – LSTM (GHI) component: GHI and CSI forecasts for every grid and month, 2014–2022 (2014 is a warm-up year that only sets the first TVWA weights)</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/components/sarimax_csi_rolling.csv">sarimax_csi_rolling.csv</a> – SARIMAX (CSI) component: GHI and CSI forecasts for every grid and month, 2014–2022 (2014 is a warm-up year that only sets the first TVWA weights)</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/components/lstm_csi_rolling.csv">lstm_csi_rolling.csv</a> – LSTM (CSI) component: GHI and CSI forecasts for every grid and month, 2014–2022 (2014 is a warm-up year that only sets the first TVWA weights)</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/components/lstm_csi_pl_rolling.csv">lstm_csi_pl_rolling.csv</a> – LSTM (CSI + PL) component: GHI and CSI forecasts for every grid and month, 2014–2022 (2014 is a warm-up year that only sets the first TVWA weights)</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/hybrid_models/rolling_metrics">outputs/hybrid_models/rolling_metrics/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/rolling_metrics_summary.csv">rolling_metrics_summary.csv</a> – Summary of every model: pooled RMSE, MAE, nRMSE, clear-sky violations and skill vs. climatology, 2015–2022</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/rolling_metrics_by_grid_all_models.csv">rolling_metrics_by_grid_all_models.csv</a> – All models: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/hybrid_csi_pl_rolling_metrics_by_grid.csv">hybrid_csi_pl_rolling_metrics_by_grid.csv</a> – Hybrid SARIMAX-LSTM + CSI + PL (proposed model): RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/hybrid_csi_pl_rolling_metrics_by_round.csv">hybrid_csi_pl_rolling_metrics_by_round.csv</a> – Hybrid SARIMAX-LSTM + CSI + PL (proposed model): RMSE, MAE and nRMSE per validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/hybrid_csi_rolling_metrics_by_grid.csv">hybrid_csi_rolling_metrics_by_grid.csv</a> – Hybrid SARIMAX-LSTM + CSI: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/hybrid_csi_rolling_metrics_by_round.csv">hybrid_csi_rolling_metrics_by_round.csv</a> – Hybrid SARIMAX-LSTM + CSI: RMSE, MAE and nRMSE per validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/hybrid_rolling_metrics_by_grid.csv">hybrid_rolling_metrics_by_grid.csv</a> – Hybrid SARIMAX-LSTM: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/hybrid_rolling_metrics_by_round.csv">hybrid_rolling_metrics_by_round.csv</a> – Hybrid SARIMAX-LSTM: RMSE, MAE and nRMSE per validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/component_sarimax_ghi_rolling_metrics_by_grid.csv">component_sarimax_ghi_rolling_metrics_by_grid.csv</a> – SARIMAX (GHI) component: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/component_sarimax_ghi_rolling_metrics_by_round.csv">component_sarimax_ghi_rolling_metrics_by_round.csv</a> – SARIMAX (GHI) component: RMSE, MAE and nRMSE per validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/component_lstm_ghi_rolling_metrics_by_grid.csv">component_lstm_ghi_rolling_metrics_by_grid.csv</a> – LSTM (GHI) component: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/component_lstm_ghi_rolling_metrics_by_round.csv">component_lstm_ghi_rolling_metrics_by_round.csv</a> – LSTM (GHI) component: RMSE, MAE and nRMSE per validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/component_sarimax_csi_rolling_metrics_by_grid.csv">component_sarimax_csi_rolling_metrics_by_grid.csv</a> – SARIMAX (CSI) component: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/component_sarimax_csi_rolling_metrics_by_round.csv">component_sarimax_csi_rolling_metrics_by_round.csv</a> – SARIMAX (CSI) component: RMSE, MAE and nRMSE per validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/component_lstm_csi_rolling_metrics_by_grid.csv">component_lstm_csi_rolling_metrics_by_grid.csv</a> – LSTM (CSI) component: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/component_lstm_csi_rolling_metrics_by_round.csv">component_lstm_csi_rolling_metrics_by_round.csv</a> – LSTM (CSI) component: RMSE, MAE and nRMSE per validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/component_lstm_csi_pl_rolling_metrics_by_grid.csv">component_lstm_csi_pl_rolling_metrics_by_grid.csv</a> – LSTM (CSI + PL) component: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/component_lstm_csi_pl_rolling_metrics_by_round.csv">component_lstm_csi_pl_rolling_metrics_by_round.csv</a> – LSTM (CSI + PL) component: RMSE, MAE and nRMSE per validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/climatology_rolling_metrics_by_grid.csv">climatology_rolling_metrics_by_grid.csv</a> – Climatology baseline: RMSE, MAE and nRMSE per grid and validation year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/rolling_metrics/climatology_rolling_metrics_by_round.csv">climatology_rolling_metrics_by_round.csv</a> – Climatology baseline: RMSE, MAE and nRMSE per validation year</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/hybrid_models/models">outputs/hybrid_models/models/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/models/sarimax_component_diagnostics_rolling.csv">sarimax_component_diagnostics_rolling.csv</a> – SARIMAX component AIC, convergence and Ljung-Box p-value per grid and year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/models/sarimax_component_orders.csv">sarimax_component_orders.csv</a> – SARIMAX component orders per grid (GHI and CSI), chosen by ADF test and AIC</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/models/hybrid_csi_pl_tvwa_weights.csv">hybrid_csi_pl_tvwa_weights.csv</a> – Hybrid SARIMAX-LSTM + CSI + PL (proposed model): TVWA weights of the SARIMAX and LSTM components per grid and year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/models/hybrid_csi_tvwa_weights.csv">hybrid_csi_tvwa_weights.csv</a> – Hybrid SARIMAX-LSTM + CSI: TVWA weights of the SARIMAX and LSTM components per grid and year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/hybrid_models/models/hybrid_tvwa_weights.csv">hybrid_tvwa_weights.csv</a> – Hybrid SARIMAX-LSTM: TVWA weights of the SARIMAX and LSTM components per grid and year</li>
+</ul>
+<h2>Final model testing (2023–2024)</h2>
+<p><b>Code</b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Final_Testing_Standalone.ipynb">Final_Testing_Standalone.ipynb</a> – Final test of SARIMAX, LSTM, XGBoost and the two baselines on 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Final_Testing_Hybrid.ipynb">Final_Testing_Hybrid.ipynb</a> – Final test of the three hybrid models and their components on 2023–2024</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/final_test">outputs/final_test/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test/final_test_metrics.csv">final_test_metrics.csv</a> – Summary of every model: pooled RMSE, MAE, nRMSE, R² and skill vs. climatology, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test/final_test_metrics_by_grid.csv">final_test_metrics_by_grid.csv</a> – RMSE, MAE, nRMSE and R² per grid and model, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test/environment.txt">environment.txt</a> – Python and library versions used for this run</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/final_test/predictions">outputs/final_test/predictions/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test/predictions/sarimax_final_test_predictions.csv">sarimax_final_test_predictions.csv</a> – SARIMAX: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test/predictions/lstm_final_test_predictions.csv">lstm_final_test_predictions.csv</a> – LSTM: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test/predictions/xgboost_final_test_predictions.csv">xgboost_final_test_predictions.csv</a> – XGBoost: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test/predictions/climatology_final_test_predictions.csv">climatology_final_test_predictions.csv</a> – Climatology baseline: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test/predictions/seasonal_naive_final_test_predictions.csv">seasonal_naive_final_test_predictions.csv</a> – Seasonal naive baseline: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/final_test/models">outputs/final_test/models/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test/models/lstm_final_test_training_history.csv">lstm_final_test_training_history.csv</a> – LSTM training and early-stopping loss per epoch, 2023 and 2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test/models/sarimax_final_test_diagnostics.csv">sarimax_final_test_diagnostics.csv</a> – SARIMAX order, AIC, convergence and Ljung-Box p-value per grid, 2023 and 2024</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/final_test_hybrid">outputs/final_test_hybrid/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/final_test_metrics.csv">final_test_metrics.csv</a> – Summary of every model: pooled RMSE, MAE, nRMSE, R², clear-sky violations and skill vs. climatology, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/final_test_metrics_by_grid.csv">final_test_metrics_by_grid.csv</a> – RMSE, MAE, nRMSE, R² and clear-sky violations per grid and model, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/environment.txt">environment.txt</a> – Python and library versions used for this run</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/final_test_hybrid/predictions">outputs/final_test_hybrid/predictions/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/predictions/hybrid_csi_pl_final_test_predictions.csv">hybrid_csi_pl_final_test_predictions.csv</a> – Hybrid SARIMAX-LSTM + CSI + PL (proposed model): forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/predictions/hybrid_csi_final_test_predictions.csv">hybrid_csi_final_test_predictions.csv</a> – Hybrid SARIMAX-LSTM + CSI: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/predictions/hybrid_final_test_predictions.csv">hybrid_final_test_predictions.csv</a> – Hybrid SARIMAX-LSTM: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/predictions/component_sarimax_ghi_final_test_predictions.csv">component_sarimax_ghi_final_test_predictions.csv</a> – SARIMAX (GHI) component: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/predictions/component_lstm_ghi_final_test_predictions.csv">component_lstm_ghi_final_test_predictions.csv</a> – LSTM (GHI) component: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/predictions/component_sarimax_csi_final_test_predictions.csv">component_sarimax_csi_final_test_predictions.csv</a> – SARIMAX (CSI) component: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/predictions/component_lstm_csi_final_test_predictions.csv">component_lstm_csi_final_test_predictions.csv</a> – LSTM (CSI) component: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/predictions/component_lstm_csi_pl_final_test_predictions.csv">component_lstm_csi_pl_final_test_predictions.csv</a> – LSTM (CSI + PL) component: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/predictions/climatology_final_test_predictions.csv">climatology_final_test_predictions.csv</a> – Climatology baseline: forecast vs. observed GHI (kWh/m²/day) for every grid and month, 2023–2024</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/final_test_hybrid/components">outputs/final_test_hybrid/components/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/components/sarimax_ghi_final_test.csv">sarimax_ghi_final_test.csv</a> – SARIMAX (GHI) component: GHI and CSI forecasts for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/components/lstm_ghi_final_test.csv">lstm_ghi_final_test.csv</a> – LSTM (GHI) component: GHI and CSI forecasts for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/components/sarimax_csi_final_test.csv">sarimax_csi_final_test.csv</a> – SARIMAX (CSI) component: GHI and CSI forecasts for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/components/lstm_csi_final_test.csv">lstm_csi_final_test.csv</a> – LSTM (CSI) component: GHI and CSI forecasts for every grid and month, 2023–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/components/lstm_csi_pl_final_test.csv">lstm_csi_pl_final_test.csv</a> – LSTM (CSI + PL) component: GHI and CSI forecasts for every grid and month, 2023–2024</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/final_test_hybrid/models">outputs/final_test_hybrid/models/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/models/sarimax_component_diagnostics_final_test.csv">sarimax_component_diagnostics_final_test.csv</a> – SARIMAX component AIC, convergence and Ljung-Box p-value per grid, 2023 and 2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/models/hybrid_csi_pl_tvwa_weights.csv">hybrid_csi_pl_tvwa_weights.csv</a> – Hybrid SARIMAX-LSTM + CSI + PL (proposed model): TVWA weights of the SARIMAX and LSTM components per grid and year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/models/hybrid_csi_tvwa_weights.csv">hybrid_csi_tvwa_weights.csv</a> – Hybrid SARIMAX-LSTM + CSI: TVWA weights of the SARIMAX and LSTM components per grid and year</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_test_hybrid/models/hybrid_tvwa_weights.csv">hybrid_tvwa_weights.csv</a> – Hybrid SARIMAX-LSTM: TVWA weights of the SARIMAX and LSTM components per grid and year</li>
+</ul>
+<h2>Spatial analysis and mapping</h2>
+<p><b>Code</b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Final_Test_Visualizations.ipynb">Final_Test_Visualizations.ipynb</a> – R² scatter plot and RMSE maps of the final test</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Philippine%20Map_Grid.ipynb">Philippine Map_Grid.ipynb</a> – Maps of the spatial grid, with and without grid numbers</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/figures">outputs/figures/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/figures/final_test_rmse_by_grid.csv">final_test_rmse_by_grid.csv</a> – Final-test RMSE per grid of the six models (data of the RMSE maps)</li>
+</ul>
+<h2>Comparative and ablation analysis</h2>
+<p><b>Code</b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Comparative_Ablation_Analysis.ipynb">Comparative_Ablation_Analysis.ipynb</a> – Diebold-Mariano tests with HLN correction for the comparative and ablation analyses (2015–2024), and RMSE difference maps</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/significance_tests">outputs/significance_tests/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/significance_tests/model_accuracy_full_record.csv">model_accuracy_full_record.csv</a> – RMSE, MAE and nRMSE of every model over the full record, 2015–2024</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/significance_tests/comparative_dm_hln.csv">comparative_dm_hln.csv</a> – Comparative analysis: proposed model vs. SARIMAX, LSTM, XGBoost, climatology and seasonal naive (DM-HLN, Holm-adjusted)</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/significance_tests/ablation_dm_hln.csv">ablation_dm_hln.csv</a> – Ablation analysis: the three hybrid variants compared (DM-HLN, Holm-adjusted)</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/significance_tests/per_grid_dm_hln.csv">per_grid_dm_hln.csv</a> – DM-HLN test per grid for each comparison (Benjamini-Hochberg FDR-adjusted)</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/significance_tests/loss_differentials_monthly.csv">loss_differentials_monthly.csv</a> – Monthly loss differentials used in the tests, 2015–2024</li>
+</ul>
+<h2>Final model training and 2026 forecast</h2>
+<p><b>Code</b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Final_Product_2026.ipynb">Final_Product_2026.ipynb</a> – Checks the proposed model on 2025, retrains it on 2005–2025 and forecasts 2026, with maps</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/data/raw/nasa_power">data/raw/nasa_power/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/data/raw/nasa_power/nasa_power_monthly_2005_2025.csv">nasa_power_monthly_2005_2025.csv</a> – NASA POWER monthly GHI, cloud amount and relative humidity per grid, 2005–2025, as downloaded for the final model</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/data/processed">data/processed/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/data/processed/nasa_power_validated_2005_2025.csv">nasa_power_validated_2005_2025.csv</a> – Validated dataset, 2005–2025, with H0, Kt, elevation and month terms (input of the final model)</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/final_product_2026">outputs/final_product_2026/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_product_2026/forecast_2026_monthly.csv">forecast_2026_monthly.csv</a> – 2026 forecast: monthly GHI per grid, with clear-sky GHI, CSI and the two component forecasts</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_product_2026/forecast_2026_annual.csv">forecast_2026_annual.csv</a> – 2026 forecast: annual mean daily GHI and annual total GHI per grid, compared with the 2005–2025 average</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_product_2026/check_2025_predictions.csv">check_2025_predictions.csv</a> – 2025 check: forecast vs. observed GHI per grid and month</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_product_2026/check_2025_metrics.csv">check_2025_metrics.csv</a> – 2025 check: RMSE, MAE, nRMSE, R² and skill of the proposed model, its two components and climatology</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_product_2026/nasa_power_request_header.json">nasa_power_request_header.json</a> – NASA POWER API version, sources and period of the 2005–2025 download</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_product_2026/nasa_power_revisions_vs_development.csv">nasa_power_revisions_vs_development.csv</a> – Comparison of the 2005–2024 values of the two NASA POWER downloads (no value was revised)</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_product_2026/environment.txt">environment.txt</a> – Python and library versions used for this run</li>
+</ul>
+<p><b><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/final_product_2026/models">outputs/final_product_2026/models/</a></b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_product_2026/models/sarimax_csi_diagnostics.csv">sarimax_csi_diagnostics.csv</a> – SARIMAX (CSI) order, AIC, convergence and Ljung-Box p-value per grid, 2025 and 2026</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/outputs/final_product_2026/models/tvwa_weights.csv">tvwa_weights.csv</a> – TVWA weights per grid, 2025 and 2026</li>
+</ul>
+<h2>Workflow charts</h2>
+<p><b>Code</b></p>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/blob/main/Workflow_Charts.ipynb">Workflow_Charts.ipynb</a> – Workflow charts of the procedures</li>
+</ul>
+<h2>Figures and trained models</h2>
+<ul>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/figures">outputs/figures/</a> – All figures: workflow charts, final-test plots and maps, 2026 forecast maps (PNG, SVG, PDF)</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/maps">outputs/maps/</a> – Maps of the spatial grid</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/standalone_models/models">outputs/standalone_models/models/</a> – Trained LSTM (.pt) and XGBoost (.json) models, rolling validation</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/hybrid_models/models">outputs/hybrid_models/models/</a> – Trained LSTM components of the hybrid models (.pt), rolling validation</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/final_test/models">outputs/final_test/models/</a> – Trained LSTM and XGBoost models, final test</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/final_test_hybrid/models">outputs/final_test_hybrid/models/</a> – Trained LSTM components of the hybrid models, final test</li>
+<li><a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS/tree/main/outputs/final_product_2026/models">outputs/final_product_2026/models/</a> – Trained LSTM component of the final model, 2025 check and 2026 forecast</li>
+</ul>
+<p>All files are in the main branch of <a href="https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS">https://github.com/gelasanjanpatrick-beep/MCS-I-S.Y.26-27-ALLSHS</a>.</p>
+</body>
+</html>

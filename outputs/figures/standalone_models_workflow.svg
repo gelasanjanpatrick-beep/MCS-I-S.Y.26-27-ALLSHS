@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="451.44pt" height="302.844738pt" viewBox="0 0 451.44 302.844738" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 302.844738 
+L 451.44 302.844738 
+L 451.44 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="line2d_1">
+    <path d="M 222.48 86.4 
+L 222.48 97.92 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 58.32 97.92 
+L 395.28 97.92 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="patch_2">
+    <path d="M 58.32 97.92 
+Q 58.32 103.68 58.32 108.545573 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 59.92 105.345573 
+L 58.32 108.545573 
+L 56.72 105.345573 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #2b2b2b; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 170.64 97.92 
+Q 170.64 103.68 170.64 108.545573 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 172.24 105.345573 
+L 170.64 108.545573 
+L 169.04 105.345573 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #2b2b2b; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 282.96 97.92 
+Q 282.96 103.68 282.96 108.545573 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 284.56 105.345573 
+L 282.96 108.545573 
+L 281.36 105.345573 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #2b2b2b; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 395.28 97.92 
+Q 395.28 103.68 395.28 108.545573 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 396.88 105.345573 
+L 395.28 108.545573 
+L 393.68 105.345573 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #2b2b2b; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 58.32 182.88 
+L 58.32 193.68 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 170.64 182.88 
+L 170.64 193.68 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 282.96 182.88 
+L 282.96 193.68 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 395.28 182.88 
+L 395.28 193.68 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 58.32 193.68 
+L 395.28 193.68 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 222.48 193.68 
+Q 222.48 199.08 222.48 203.585573 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 224.08 200.385573 
+L 222.48 203.585573 
+L 220.88 200.385573 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #2b2b2b; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 222.48 34.56 
+Q 222.48 41.76 222.48 48.065573 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 224.08 44.865573 
+L 222.48 48.065573 
+L 220.88 44.865573 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #2b2b2b; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 222.48 237.6 
+Q 222.48 244.08 222.48 249.665573 
+" clip-path="url(#pd32b654be4)" style="fill: none; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 224.08 246.465573 
+L 222.48 249.665573 
+L 220.88 246.465573 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #2b2b2b; stroke: #2b2b2b; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 64.08 2.88 
+L 380.88 2.88 
+L 380.88 31.32 
+C 275.28 39.096 169.68 23.544 64.08 31.32 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #e9ecef; stroke: #2b2b2b; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 24.48 86.4 
+L 420.48 86.4 
+Q 424.08 86.4 424.08 82.8 
+L 424.08 52.56 
+Q 424.08 48.96 420.48 48.96 
+L 24.48 48.96 
+Q 20.88 48.96 20.88 52.56 
+L 20.88 82.8 
+Q 20.88 86.4 24.48 86.4 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #ffffff; stroke: #2b2b2b; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 8.64 182.88 
+L 108 182.88 
+Q 111.6 182.88 111.6 179.28 
+L 111.6 113.04 
+Q 111.6 109.44 108 109.44 
+L 8.64 109.44 
+Q 5.04 109.44 5.04 113.04 
+L 5.04 179.28 
+Q 5.04 182.88 8.64 182.88 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #ffffff; stroke: #2b2b2b; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 120.96 182.88 
+L 220.32 182.88 
+Q 223.92 182.88 223.92 179.28 
+L 223.92 113.04 
+Q 223.92 109.44 220.32 109.44 
+L 120.96 109.44 
+Q 117.36 109.44 117.36 113.04 
+L 117.36 179.28 
+Q 117.36 182.88 120.96 182.88 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #ffffff; stroke: #2b2b2b; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 233.28 182.88 
+L 332.64 182.88 
+Q 336.24 182.88 336.24 179.28 
+L 336.24 113.04 
+Q 336.24 109.44 332.64 109.44 
+L 233.28 109.44 
+Q 229.68 109.44 229.68 113.04 
+L 229.68 179.28 
+Q 229.68 182.88 233.28 182.88 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #ffffff; stroke: #2b2b2b; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 345.6 182.88 
+L 444.96 182.88 
+Q 448.56 182.88 448.56 179.28 
+L 448.56 113.04 
+Q 448.56 109.44 444.96 109.44 
+L 345.6 109.44 
+Q 342 109.44 342 113.04 
+L 342 179.28 
+Q 342 182.88 345.6 182.88 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #ffffff; stroke: #2b2b2b; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 64.08 204.48 
+L 380.88 204.48 
+L 380.88 234.36 
+C 275.28 242.136 169.68 226.584 64.08 234.36 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #e9ecef; stroke: #2b2b2b; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 118.8 273.6 
+L 326.16 273.6 
+Q 337.68 273.6 337.68 262.08 
+L 337.68 262.08 
+Q 337.68 250.56 326.16 250.56 
+L 118.8 250.56 
+Q 107.28 250.56 107.28 262.08 
+L 107.28 262.08 
+Q 107.28 273.6 118.8 273.6 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #ffffff; stroke: #2b2b2b; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 6.48 299.52 
+L 23.76 299.52 
+Q 27.36 299.52 27.36 295.92 
+L 27.36 288.72 
+Q 27.36 285.12 23.76 285.12 
+L 6.48 285.12 
+Q 2.88 285.12 2.88 288.72 
+L 2.88 295.92 
+Q 2.88 299.52 6.48 299.52 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #ffffff; stroke: #2b2b2b; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 80.28 283.68 
+L 104.76 283.68 
+L 104.76 297.72 
+C 96.6 305.496 88.44 289.944 80.28 297.72 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #e9ecef; stroke: #2b2b2b; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 172.8 299.52 
+L 182.88 299.52 
+Q 190.08 299.52 190.08 292.32 
+L 190.08 292.32 
+Q 190.08 285.12 182.88 285.12 
+L 172.8 285.12 
+Q 165.6 285.12 165.6 292.32 
+L 165.6 292.32 
+Q 165.6 299.52 172.8 299.52 
+z
+" clip-path="url(#pd32b654be4)" style="fill: #ffffff; stroke: #2b2b2b; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 7.1px; font-family: 'Arial'; text-anchor: start; fill: #1a1a1a" x="32.4" y="294.157402" transform="rotate(-0 32.4 294.157402)">Process</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 7.1px; font-family: 'Arial'; text-anchor: start; fill: #1a1a1a" x="109.8" y="294.157402" transform="rotate(-0 109.8 294.157402)">Data file</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7.1px; font-family: 'Arial'; text-anchor: start; fill: #1a1a1a" x="195.12" y="294.157402" transform="rotate(-0 195.12 294.157402)">Start / end</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 7.6px; font-family: 'Arial'; text-anchor: middle; fill: #1a1a1a" x="222.48" y="13.82201" transform="rotate(-0 222.48 13.82201)">Prepared data (2005–2022)</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7.1px; font-family: 'Arial'; text-anchor: middle; fill: #1a1a1a" x="222.48" y="24.656578" transform="rotate(-0 222.48 24.656578)">Monthly GHI, cloud amount and RH · elevation · 93 grid cells</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 7.6px; font-family: 'Arial'; text-anchor: middle; fill: #1a1a1a" x="222.48" y="60.057521" transform="rotate(-0 222.48 60.057521)">Define the forecast task (the same for every model)</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(94.825883 70.892088)">From each December origin, forecast the 12 monthly GHI values of the next year,</text>
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(164.066969 79.177802)">using only data available at the origin</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 7.6px; font-family: 'Arial'; text-anchor: middle; fill: #1a1a1a" x="58.32" y="130.960229" transform="rotate(-0 58.32 130.960229)">SARIMAX</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(21.62132 141.045328)">One model per grid cell</text>
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(31.387148 150.075987)">Past GHI + cloud</text>
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(29.511195 158.40663)">amount and RH of</text>
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(30.894586 166.702883)">12 months earlier</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 7.6px; font-family: 'Arial'; text-anchor: middle; fill: #1a1a1a" x="170.64" y="130.960229" transform="rotate(-0 170.64 130.960229)">LSTM</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(142.815766 141.045328)">One global model</text>
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(134.135461 149.380963)">12-month input window</text>
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(141.731906 157.668341)">2 layers × 64 units</text>
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(141.431266 166.038922)">12 outputs at once</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 7.6px; font-family: 'Arial'; text-anchor: middle; fill: #1a1a1a" x="282.96" y="130.96201" transform="rotate(-0 282.96 130.96201)">XGBoost</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(255.135766 141.045328)">One global model</text>
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(246.064961 149.616706)">Past 12 months of GHI,</text>
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(248.625398 158.363365)">cloud amount and RH</text>
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(250.497469 166.692344)">+ horizon and month</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 7.6px; font-family: 'Arial'; text-anchor: middle; fill: #1a1a1a" x="395.28" y="130.963791" transform="rotate(-0 395.28 130.963791)">Reference forecasts</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(375.748898 141.043109)">Climatology:</text>
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(369.036625 149.328823)">monthly average</text>
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(370.018977 158.404966)">Seasonal naive:</text>
+    <text style="font-size: 7.1px; font-family: 'Arial'; fill: #1a1a1a" transform="translate(361.345883 165.986782)">same month last year</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 7.6px; font-family: 'Arial'; text-anchor: middle; fill: #1a1a1a" x="222.48" y="216.850948" transform="rotate(-0 222.48 216.850948)">Forecasts</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7.1px; font-family: 'Arial'; text-anchor: middle; fill: #1a1a1a" x="222.48" y="226.976578" transform="rotate(-0 222.48 226.976578)">12 monthly GHI values per model, grid cell and forecast year</text>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 7.6px; font-family: 'Arial'; text-anchor: middle; fill: #1a1a1a" x="222.48" y="264.000187" transform="rotate(-0 222.48 264.000187)">To model training and rolling validation</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pd32b654be4">
+   <rect x="-11.52" y="-0.72" width="468" height="720"/>
+  </clipPath>
+ </defs>
+</svg>

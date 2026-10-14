@@ -1,0 +1,10 @@
+python==3.14.7
+numpy==2.5.3
+pandas==3.0.6
+statsmodels==0.15.0
+scikit-learn==1.9.1
+torch==2.14.0
+pvlib==0.16.1
+joblib==1.6.0
+geopandas==1.2.0
+matplotlib==3.11.2

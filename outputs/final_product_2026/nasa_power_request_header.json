@@ -1,0 +1,16 @@
+{
+  "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+  "api": {
+    "version": "v2.10.0",
+    "name": "POWER Monthly and Annual API"
+  },
+  "sources": [
+    "SYN1DEG",
+    "MERRA2",
+    "POWER"
+  ],
+  "fill_value": -999.0,
+  "time_standard": "LST",
+  "start": "20050101",
+  "end": "20251231"
+}

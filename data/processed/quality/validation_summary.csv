@@ -1,0 +1,26 @@
+section,check,status,n_issues,detail
+A. Structure,Required columns present,PASS,0,all required columns present
+A. Structure,Variables are numeric,PASS,0,all variables numeric
+A. Structure,Grid coverage matches grid_metadata.csv,PASS,0,"93 grids in data, 93 in metadata; missing: [], extra: []"
+A. Structure,grid_id and coordinates consistent with metadata,PASS,0,all grids consistent
+A. Structure,Every grid has exactly 240 months,PASS,0,all 93 grids have 240 months
+A. Structure,No duplicate grid_number + date,PASS,0,0 duplicated rows
+A. Structure,Continuous monthly sequence 2005-01 to 2024-12,PASS,0,all grids continuous from 2005-01 to 2024-12
+A. Structure,date matches year and month columns,PASS,0,0 mismatched rows
+A. Structure,Records sorted by grid_number and date,PASS,0,sorted
+B. Missing values,No missing ghi_kwh_m2_day,PASS,0,"0 NaN, 0 NASA fill values (-999)"
+B. Missing values,No missing cloud_amt_pct,PASS,0,"0 NaN, 0 NASA fill values (-999)"
+B. Missing values,No missing rh2m_pct,PASS,0,"0 NaN, 0 NASA fill values (-999)"
+C. Physical validity,GHI >= 0 (invalid if negative),PASS,0,0 negative values
+C. Physical validity,GHI <= extraterrestrial H0 (invalid if Kt > 1),PASS,0,0 values above H0
+C. Physical validity,Clearness index Kt within 0.1-0.8,PASS,0,0 values outside range; observed Kt 0.276 - 0.718
+C. Physical validity,cloud_amt_pct within 0-100,PASS,0,0 values out of range; observed 7.97 - 99.09
+C. Physical validity,rh2m_pct within 0-100,PASS,0,0 values out of range; observed 56.02 - 94.30
+D. Outliers,ghi_kwh_m2_day outliers (|modified z| > 3.5),WARN,137,137 outliers in 69 grids (0.61% of records)
+D. Outliers,cloud_amt_pct outliers (|modified z| > 3.5),WARN,224,224 outliers in 91 grids (1.00% of records)
+D. Outliers,rh2m_pct outliers (|modified z| > 3.5),WARN,249,249 outliers in 79 grids (1.12% of records)
+E. Additional,ghi_kwh_m2_day has no flat lines (>= 3 identical months),PASS,0,0 records in flat runs
+E. Additional,cloud_amt_pct has no flat lines (>= 3 identical months),PASS,0,0 records in flat runs
+E. Additional,rh2m_pct has no flat lines (>= 3 identical months),PASS,0,0 records in flat runs
+E. Additional,GHI negatively correlated with cloud amount in every grid,PASS,0,r range -0.868 to -0.355; non-negative grids: []
+E. Additional,Elevation available for every grid,PASS,0,all 93 grids have elevation

@@ -1,0 +1,4 @@
+variable,values_compared,values_revised,max_absolute_change,mean_absolute_change
+ghi_kwh_m2_day,22320,0,0.0,0.0
+cloud_amt_pct,22320,0,0.0,0.0
+rh2m_pct,22320,0,0.0,0.0

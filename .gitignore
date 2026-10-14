@@ -1,0 +1,10 @@
+# Large third-party input (198 MB, above GitHub's 100 MB limit).
+# Its source is listed in README.md.
+data/boundaries/
+
+# Download cache of Final_Product_2026.ipynb (can be recreated)
+data/raw/nasa_power/nasa_power_cache_*/
+
+# Python and Jupyter working files
+__pycache__/
+.ipynb_checkpoints/
